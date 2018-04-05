@@ -8,7 +8,7 @@ pub struct FidoFmt {
     plugin_id: i32,
     plugin_type: i32,
     source_platform: String,
-    soruce_channel:String,
+    source_channel:String,
     timestamp:String,
     source_user:String,
     data: Vec<serde_json::Value>,
@@ -17,10 +17,10 @@ pub struct FidoFmt {
 impl FidoFmt {
     pub fn new() -> Self {
         FidoFmt {
-            plugin_id: -2,
-            plugin_type: -2,
+            plugin_id: 0,
+            plugin_type: 0,
             source_platform: String::new(),
-            soruce_channel: String::new(),
+            source_channel: String::new(),
             timestamp: String::new(),
             source_user: String::new(),
             data: Vec::new(),
@@ -31,7 +31,7 @@ impl FidoFmt {
         self.plugin_id = id;
         self.plugin_type = p_type;
         self.source_platform = sp;
-        self.soruce_channel = sc;
+        self.source_channel = sc;
         self.source_user = su;
         self.data = data;
 
@@ -49,7 +49,7 @@ impl FidoFmt {
             plugin_type: self.plugin_type,
             timestamp: self.timestamp,
             source_platform: self.source_platform,
-            soruce_channel: self.soruce_channel,
+            source_channel: self.source_channel,
             source_user: self.source_user,
             data: self.data,
         }
@@ -62,7 +62,7 @@ pub fn to_json(msg:FidoFmt) -> String {
         plugin_type: msg.plugin_type,
         timestamp: msg.timestamp,
         source_platform: msg.source_platform,
-        soruce_channel: msg.soruce_channel,
+        source_channel: msg.source_channel,
         source_user: msg.source_user,
         data: msg.data
     };
