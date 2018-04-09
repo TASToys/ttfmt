@@ -11,7 +11,7 @@ pub struct FidoFmt {
     source_channel:String,
     timestamp:String,
     source_user:String,
-    data: Vec<serde_json::Value>,
+    data: serde_json::Value,
 }
 
 impl FidoFmt {
@@ -23,11 +23,11 @@ impl FidoFmt {
             source_channel: String::new(),
             timestamp: String::new(),
             source_user: String::new(),
-            data: Vec::new(),
+            data: serde_json::Value::Null,
         }
     }
 
-    pub fn fmt_fido_msg(mut self, id:i32, p_type:i32, sp:String, sc:String, su:String, data: Vec<serde_json::Value>) -> FidoFmt {
+    pub fn fmt_fido_msg(mut self, id:i32, p_type:i32, sp:String, sc:String, su:String, data: serde_json::Value) -> FidoFmt {
         self.plugin_id = id;
         self.plugin_type = p_type;
         self.source_platform = sp;
