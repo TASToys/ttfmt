@@ -11,7 +11,7 @@ pub struct ChatFmt {
     sender:String,
     message:String,
     split_msg:Vec<String>,
-    platform_meta:Vec<serde_json::Value>,
+    platform_meta: serde_json::Value,
 }
 
 impl ChatFmt {
@@ -23,11 +23,11 @@ impl ChatFmt {
             sender: String::new(),
             message: String::new(),
             split_msg: Vec::new(),
-            platform_meta: Vec::new(),
+            platform_meta: serde_json::Value::Null,
         }
     }
 
-    pub fn fmt_chat_msg(mut self, channel:String, sender:String, msg:String, psm:Vec<serde_json::Value>) -> ChatFmt {
+    pub fn fmt_chat_msg(mut self, channel:String, sender:String, msg:String, psm: serde_json::Value) -> ChatFmt {
         self.channel = channel;
         let time = SystemTime::now();
         let unix_time = time.duration_since(UNIX_EPOCH).unwrap().as_secs();
