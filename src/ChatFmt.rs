@@ -5,13 +5,13 @@ use std::time::{SystemTime, UNIX_EPOCH};
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct ChatFmt {
-    platform:String,
-    channel:String,
-    timestamp:String,
-    sender:String,
-    message:String,
-    split_msg:Vec<String>,
-    platform_meta: serde_json::Value,
+    pub platform:String,
+    pub channel:String,
+    pub timestamp:String,
+    pub sender:String,
+    pub message:String,
+    pub split_msg:Vec<String>,
+    pub platform_meta: serde_json::Value,
 }
 
 impl ChatFmt {
