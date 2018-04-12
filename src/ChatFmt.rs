@@ -3,7 +3,7 @@ extern crate serde_json;
 
 use std::time::{SystemTime, UNIX_EPOCH};
 
-#[derive(Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize)]
 pub struct ChatFmt {
     platform:String,
     channel:String,
