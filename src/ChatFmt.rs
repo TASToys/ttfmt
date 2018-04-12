@@ -15,40 +15,19 @@ pub struct ChatFmt {
 }
 
 impl ChatFmt {
-    pub fn new(platform:String) -> Self {
+    pub fn new(platform:String, channel:String, sender:String, message:String, psm: serde_json::Value) -> Self {
+
+        let time = SystemTime::now().duration_since(UNIX_EPOCH).unwrap().as_secs().to_string();
+
+        let m2 = message.clone();
         ChatFmt {
-            platform: platform,
-            channel: String::new(),
-            timestamp: String::new(),
-            sender: String::new(),
-            message: String::new(),
-            split_msg: Vec::new(),
-            platform_meta: serde_json::Value::Null,
-        }
-    }
-
-    pub fn fmt_chat_msg(mut self, channel:String, sender:String, msg:String, psm: serde_json::Value) -> ChatFmt {
-        self.channel = channel;
-        let time = SystemTime::now();
-        let unix_time = time.duration_since(UNIX_EPOCH).unwrap().as_secs();
-        self.timestamp = unix_time.to_string();
-        self.sender = sender;
-        self.message = msg;
-        self.split_msg = self.message.split(" ").map(|s| s.to_string()).collect();
-        self.platform_meta = psm;
-
-        self
-    }
-
-    pub fn build(self) -> ChatFmt {
-        ChatFmt {
-            platform: self.platform,
-            channel: self.channel,
-            timestamp: self.timestamp,
-            sender: self.sender,
-            message: self.message,
-            split_msg: self.split_msg,
-            platform_meta: self.platform_meta,
+            platform,
+            channel,
+            timestamp: time,
+            sender,
+            message,
+            split_msg: m2.clone().split(" ").map(|s| s.to_string()).collect(),
+            platform_meta: psm,
         }
     }
 }
