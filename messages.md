@@ -14,7 +14,7 @@ to be processed.
 | source_channel  | **String**  | The channel the message is sent from i.e [dwangoAC](https://www.twitch.tv/dwangoac) |
 | timestamp       | **String**  | The time the message was sent in the unix timestamp format |
 | source_user     | **String**  | The user who issued the command that caused the fido to be generated |
-| data            | **Object**  | A data object that is sent with the relevant information for each command generates as well as platform meta data |
+| data            | **Object**  | A data object that is sent with the relevant information required upstream as well as platform meta data |
 
 ### Example message
 ```json
