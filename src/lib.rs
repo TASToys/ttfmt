@@ -1,5 +1,4 @@
 #[macro_use]
 extern crate serde_derive;
 
-pub mod ChatFmt;
-pub mod FidoFmt;
+pub mod EventMessage;
