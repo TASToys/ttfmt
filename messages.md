@@ -10,15 +10,23 @@ trigger.
 | Field           |Type             | Description|
 | ---------       |-----            |---------   |
 | platform        | **String**      | The platform the chat message came from (i.e Twitch, YouTube, HitBox) |
-| channel         | **String**      | The channel the server came from (i.e dwangoAC) |
+| channel         | **User Object** | The channel the server came from (i.e dwangoAC) |
 | timestamp       | **String**      | The timestamp of when the chat message was sent sent |
-| sender          | **String**      | The one who sent the chat message |
+| sender          | **User Object** | The one who sent the chat message |
 | message         | **String**      | The chat message |
 | split_msg       | **String Array**| The chat message split into individual words|
-| platform_meta   | **Object**      | An object containing platfrom metadata (i.e isMod, isSteamer, badges, etc...)
+| platform_meta   | **Object**      | An object containing platform data(if Twitch it might look like " {"brodcaster-lang":null, "emote-only":false, "followers-only":false, "sub-only":false, "r9k":false}")
 | plugin          | **Object**      | Plugin object
 
-Plugin Data
+#### User
+
+| Field           |Type             | Description|
+| ---------       |-----            |---------   |
+| name            | **String**      | The name of a user |
+| user_id         | **String**      | The uid of the user based on platform |
+| user_meta       | **Object**      | The meta of an user. (if its a Twitch user it might look like "{"isMod":false, "isSubscriber":false, "isTurbo":false, "badges":[], "color":"#0D4200", "bits":100, "user-type":null}|
+
+#### Plugin
 
 | Field           |Type             | Description|
 | ---------       |-----            |---------   |
@@ -31,14 +39,26 @@ Plugin Data
 ```json
 {
 	"platform": "Twitch",
-	"channel": "dwangoAC",
+	"channel": {
+		"name":"dwangoAC",
+		"id":"lajsd;ljeffl;kajsd;ihih",
+		"user_meta": {
+			...
+		}
+	},
 	"timestamp": "1522899575",
-	"sender" : "jeff",
+	"sender" : {
+		"name":"jeff",
+		"id":"jeff_id",
+		"user_meta": {
+			...
+		}
+	},
 	"message":"Lets sit around the campfire and sing the campfire song the C A M P F I R E song",
 	"split_msg":["Lets", "sit", "around", "the", "campfire", "and", "sing", "the", "campfire", 
 			"song", "the", "C", "A", "M", "P", "F", "I", "R", "E", "song"],
 	"platform_meta": {
-        	...
+		...
 	},
 	
 	"plugin": {

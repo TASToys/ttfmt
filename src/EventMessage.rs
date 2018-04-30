@@ -8,9 +8,9 @@ use std::option;
 #[derive(Serialize, Deserialize)]
 pub struct EventMessage {
     pub platform:String,
-    pub channel:String,
+    pub channel:User,
     pub timestamp:String,
-    pub sender:String,
+    pub sender:User,
     pub message:String,
     pub split_msg:Vec<String>,
     pub platform_meta: serde_json::Value,
@@ -22,6 +22,13 @@ pub struct Plugin {
     pub plugin_id:i32,
     pub trigger:String,
     pub data: serde_json::Value
+}
+
+#[derive(Serialize, Deserialize)]
+pub struct User {
+    pub name:String,
+    pub id:String,
+    pub user_data:serde_json::Value,
 }
 
 impl EventMessage {
