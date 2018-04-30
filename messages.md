@@ -77,9 +77,21 @@ trigger.
 ```json
 {
 	"platform": "Twitch",
-	"channel": "dwangoAC",
+	"channel": {
+		"name":"dwangoAC",
+		"id":"lajsd;ljeffl;kajsd;ihih",
+		"user_meta": {
+			...
+		}
+	},
 	"timestamp": "1522899575",
-	"sender" : "jeff",
+	"sender" : {
+		"name":"jeff",
+		"id":"jeff_id",
+		"user_meta": {
+			...
+		}
+	},
 	"message":"Lets sit around the campfire and sing the campfire song the C A M P F I R E song",
 	"split_msg":["Lets", "sit", "around", "the", "campfire", "and", "sing", "the", "campfire", 
 			"song", "the", "C", "A", "M", "P", "F", "I", "R", "E", "song"],
