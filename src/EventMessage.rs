@@ -32,7 +32,7 @@ pub struct User {
 }
 
 impl EventMessage {
-    pub fn plugin_msg(platform:String, channel:String, sender:String, message:String,
+    pub fn plugin_msg(platform:String, channel:User, sender:User, message:String,
                platform_meta:serde_json::Value, plugin:Option<Plugin>) -> Self {
         let time = SystemTime::now().duration_since(UNIX_EPOCH).unwrap().as_secs().to_string();
 
@@ -50,7 +50,7 @@ impl EventMessage {
         }
     }
 
-    pub fn null_msg(platform:String, channel:String, sender:String, message:String,
+    pub fn null_msg(platform:String, channel:User, sender:User, message:String,
                       platform_meta:serde_json::Value) -> Self {
         let time = SystemTime::now().duration_since(UNIX_EPOCH).unwrap().as_secs().to_string();
 
